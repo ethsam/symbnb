@@ -6,7 +6,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="Home")
      */
     public function home()
     {
