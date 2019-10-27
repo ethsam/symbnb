@@ -41,11 +41,11 @@
 	    responsive:{
 	      0:{
 	        items:1,
-	        nav:false
+	        nav:true
 	      },
 	      600:{
 	        items:1,
-	        nav:false
+	        nav:true
 	      },
 	      1000:{
 	        items:1,
@@ -383,7 +383,7 @@
 
    
    $('#checkin_date, #checkout_date, #start_date, #return_date').datepicker({
-	  'format': 'm/d/yyyy',
+	  'format': 'd/m/yyyy',
 	  'autoclose': true
 	});
 	// $('#checkout_date').datepicker({
@@ -391,6 +391,13 @@
 	//   'autoclose': true
 	// });
 	// $('#appointment_time').timepicker();
+
+	//ethsam
+	$('.home-slider').owlCarousel.on('dragged.owl.carousel', function(even) {
+		document.ontouchmove = function (e) {
+			return true;
+		}
+	});
 
 
 

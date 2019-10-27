@@ -1,0 +1,17 @@
+# easy_admin:
+#    site_name: '<h1>Administration | La Réunion</h1>'
+#    entities:
+#        # List the entity class name you want to manage
+#       #  - App\Entity\User
+#       #  - App\Entity\Article
+#       #  - App\Entity\Category
+#       #  - App\Entity\Comment
+#       #  - App\Entity\Tag
+#       #  - App\Entity\Category
+#       #  - App\Entity\User
+#    user:
+#       name_property_path: 'fullName'
+#       display_name: true
+#       display_avatar: false
+#    design:
+#       brand_color: '#1ABC9C'
