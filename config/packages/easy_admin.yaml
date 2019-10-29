@@ -14,4 +14,11 @@ easy_admin:
       display_name: true
       display_avatar: false
    design:
-      brand_color: '#1ABC9C'
+      brand_color: '#fe5f5f'
+      menu:
+         - { entity: 'Users', icon: 'user' }
+         - { label: 'Blog' }
+         - { entity: 'Articles', label: 'Articles', icon: 'tag' }
+         - { entity: 'Categories', label: 'Catégories', icon: 'tag' }
+         - { entity: 'MotsCles', label: 'Mots Clés', icon: 'tag' }
+         - { entity: 'Commentaires', label: 'Commentaires', icon: 'tag' }
