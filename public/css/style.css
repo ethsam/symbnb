@@ -8851,7 +8851,6 @@ textarea.form-control {
     /* ethsam */
   li.nav-item.active a {
     font-weight: bold;
-    text-decoration: underline;
     color: white !important;
     background-color: #fe5f5f;
   }
@@ -8859,4 +8858,18 @@ textarea.form-control {
   .owl-carousel .owl-stage, .owl-carousel.owl-drag .owl-item {
     -ms-touch-action: auto;
     touch-action: auto;
+  }
+
+  input#inputEmail {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  input#inputPassword {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .borderLoginForm {
+    border: 1px solid black;
   }
