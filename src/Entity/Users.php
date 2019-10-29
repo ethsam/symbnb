@@ -2,15 +2,18 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class User implements UserInterface
+class Users implements UserInterface
 {
-    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -35,20 +38,14 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity="App\Entity\Articles", mappedBy="users", orphanRemoval=true)
      */
-    private $name;
+    private $articles;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $surname;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $displayname;
-
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -128,39 +125,39 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getName(): ?string
+    /**
+     * @return Collection|Articles[]
+     */
+    public function getArticles(): Collection
     {
-        return $this->name;
+        return $this->articles;
     }
 
-    public function setName(string $name): self
+    public function addArticle(Articles $article): self
     {
-        $this->name = $name;
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setUsers($this);
+        }
 
         return $this;
     }
 
-    public function getSurname(): ?string
+    public function removeArticle(Articles $article): self
     {
-        return $this->surname;
-    }
-
-    public function setSurname(string $surname): self
-    {
-        $this->surname = $surname;
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            // set the owning side to null (unless already changed)
+            if ($article->getUsers() === $this) {
+                $article->setUsers(null);
+            }
+        }
 
         return $this;
     }
 
-    public function getDisplayname(): ?string
+    public function __toString()
     {
-        return $this->displayname;
-    }
-
-    public function setDisplayname(string $displayname): self
-    {
-        $this->displayname = $displayname;
-
-        return $this;
+        return $this->email;
     }
 }

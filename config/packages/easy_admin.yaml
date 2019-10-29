@@ -2,11 +2,11 @@ easy_admin:
    site_name: '<h1>Administration | La Réunion</h1>'
    entities:
        # List the entity class name you want to manage
-       - App\Entity\User
-       - App\Entity\Post
-       - App\Entity\Postcategory
-      #  - App\Entity\Comment
-      #  - App\Entity\Tag
+       - App\Entity\Users
+       - App\Entity\Articles
+       - App\Entity\Categories
+       - App\Entity\Commentaires
+       - App\Entity\MotsCles
       #  - App\Entity\Category
       #  - App\Entity\User
    user:
