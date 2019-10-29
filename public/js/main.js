@@ -392,14 +392,6 @@
 	// });
 	// $('#appointment_time').timepicker();
 
-	//ethsam
-	$('.home-slider').owlCarousel.on('dragged.owl.carousel', function(even) {
-		document.ontouchmove = function (e) {
-			return true;
-		}
-	});
-
-
 
 })(jQuery);
 
