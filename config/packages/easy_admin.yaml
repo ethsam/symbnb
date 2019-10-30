@@ -7,8 +7,7 @@ easy_admin:
        - App\Entity\Categories
        - App\Entity\Commentaires
        - App\Entity\MotsCles
-      #  - App\Entity\Category
-      #  - App\Entity\User
+
    user:
       name_property_path: 'fullName'
       display_name: true
