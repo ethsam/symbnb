@@ -26,7 +26,7 @@ class Articles
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Constraints\Regex(pattern="/^[a-z0-9\-]+$/*")
+     * @Constraints\Regex(pattern="/^[a-z0-9]+(?:-[a-z0-9]+)*$/")
      */
     private $slug;
 
