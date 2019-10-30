@@ -104,7 +104,7 @@ class Users implements UserInterface
 
     public function setPassword(string $password ): self
     {
-        $this->password = $password;
+        $this->password = md5($password);
 
         return $this;
     }
@@ -115,7 +115,6 @@ class Users implements UserInterface
     public function getSalt()
     {
         // not needed when using the "bcrypt" algorithm in security.yaml
-        //return "salt";
     }
 
     /**
@@ -162,4 +161,5 @@ class Users implements UserInterface
     {
         return $this->email;
     }
+
 }
