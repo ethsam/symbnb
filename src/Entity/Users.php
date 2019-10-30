@@ -42,9 +42,15 @@ class Users implements UserInterface
      */
     private $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Products", mappedBy="usercreate")
+     */
+    private $products;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -159,6 +165,37 @@ class Users implements UserInterface
     public function __toString()
     {
         return $this->email;
+    }
+
+    /**
+     * @return Collection|Products[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Products $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->setUsercreate($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Products $product): self
+    {
+        if ($this->products->contains($product)) {
+            $this->products->removeElement($product);
+            // set the owning side to null (unless already changed)
+            if ($product->getUsercreate() === $this) {
+                $product->setUsercreate(null);
+            }
+        }
+
+        return $this;
     }
 
 }

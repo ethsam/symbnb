@@ -27,6 +27,11 @@ easy_admin:
                 fields:
                     - { property: 'mot_cle', type: 'text', label: 'Mots Clé' }
                     - { property: 'slug', type: 'text', label: 'Slug' }
+      Products:
+         class: App\Entity\Products
+      
+      ProductCategory:
+         class: App\Entity\ProductsCategory
 
    user:
       name_property_path: 'fullName'
@@ -36,6 +41,9 @@ easy_admin:
       brand_color: '#fe5f5f'
       menu:
          - { entity: 'Users', icon: 'user' }
+         - { label: 'Listings' }
+         - { entity: 'Products', label: 'Produits', icon: 'tag' }
+         - { entity: 'ProductCategory', label: 'Catégories', icon: 'tag' }
          - { label: 'Blog' }
          - { entity: 'Articles', label: 'Articles', icon: 'tag' }
          - { entity: 'Categories', label: 'Catégories', icon: 'tag' }
