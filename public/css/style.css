@@ -7935,7 +7935,7 @@ textarea.form-control {
   border-radius: 50%; }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 4em 0;
   position: relative; }
 
 .ftco-bg-dark {
@@ -7944,7 +7944,7 @@ textarea.form-control {
 .ftco-footer {
   font-size: 16px;
   background: #2C2E3E;
-  padding: 8em 0; }
+  padding: 1em 0; }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
@@ -8872,4 +8872,8 @@ textarea.form-control {
 
   .borderLoginForm {
     border: 1px solid black;
+  }
+
+  .navbar-nav li:last-child a {
+    padding-left: 2px !important;
   }

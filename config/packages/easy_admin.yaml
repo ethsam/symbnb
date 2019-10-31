@@ -29,6 +29,18 @@ easy_admin:
                     - { property: 'slug', type: 'text', label: 'Slug' }
       Products:
          class: App\Entity\Products
+         form:
+                fields:
+                    - { property: 'title', type: 'text', label: 'Title' }
+                    - { property: 'content', type: 'text', label: 'Content' }
+                    - { property: 'phone', type: 'text', label: 'Phone' }
+                    - { property: 'email', type: 'text', label: 'email' }
+                    - { property: 'website', type: 'text', label: 'Site Web' }
+                    - { property: 'bookingurl', type: 'text', label: 'Booking URL' }
+                    - { property: 'img', type: 'file', label: 'Image' }
+                    - { property: 'usercreate', label: 'Utilisateur' }
+                    - { property: 'datecreate', type_options: { widget: 'single_text' }}
+                    - { property: 'publish', label: 'Published Status' }
       
       ProductCategory:
          class: App\Entity\ProductsCategory

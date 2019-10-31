@@ -21,15 +21,36 @@
     </section>
     <!-- END slider -->
 
+<section class="ftco-section-2">
+    <div class="container-fluid">
+        <div class="section-2-blocks-wrapper row no-gutters">
+
+            <div class="text col-sm-12 ftco-animate p-5 text-center">
+                <div class="text-inner align-self-start mt-1">
+
+                    <h3>Welcome to Bon Voyage since 1898 established Far far away.</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                                                    there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+                                                    Semantics, a large language ocean.</p>
+
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                                                    It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     <section class="ftco-section">
-        <div class="container">
+        <div class="container" style="max-width:90%;">
             {#{ dump(listhotels) }#}
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <div class="row">
 
                         {%  for hotel in listhotels %}
-                        <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                        <div class="col-md-4 col-lg-4 mb-4 ftco-animate">
                             <a href="#" class="block-5" style="background-image: url('images/hotel-1.jpg');">
                                 <div class="text">
                                     <span class="price">$29/night</span>
@@ -37,34 +58,23 @@
                                     <div class="post-meta">
                                         <span>Ameeru Ahmed Magu Male’, Maldives</span>
                                     </div>
-                                    <p class="star-rate"><span class="icon-star"></span><span
-                                            class="icon-star"></span><span class="icon-star"></span><span
-                                            class="icon-star"></span><span class="icon-star-half-full"></span> <span>500
-                                            reviews</span></p>
+                                    <p class="star-rate">
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star-half-full"></span>
+                                        <span>500reviews</span>
+                                    </p>
                                 </div>
                             </a>
                         </div>
                         {% endfor %}
                     </div>
-                    <div class="row mt-5">
-                        <div class="col text-center">
-                            <div class="block-27">
-                                <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- END -->
 
-                <div class="col-lg-4 sidebar">
+                <div class="col-lg-3 sidebar">
 
                     <div class="sidebar-box ftco-animate">
                         <div class="categories">
