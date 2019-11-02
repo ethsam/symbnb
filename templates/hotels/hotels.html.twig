@@ -52,7 +52,7 @@
                         {%  for hotel in listhotels %}
                         <div class="col-md-4 col-lg-4 mb-4 ftco-animate">
                             <!-- <a href="#" class="block-5" style="background-image: url('images/hotel-1.jpg');"> -->
-                            <a href="#" class="block-5" style="background-image: url("{{ vich_uploader_asset(hotel, 'imageFile')|e('js') }}")></a>
+                            <a href="#" class="block-5" style="background-image: url('{{ vich_uploader_asset(hotel, 'imageFile') }}')">
                                 <div class="text">
                                     <span class="price">$29/night</span>
                                     <h3 class="heading">{{ hotel.title }}</h3>
