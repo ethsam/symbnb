@@ -5,9 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductsRepository")
+ * @Vich\Uploadable()
  */
 class Products
 {
@@ -17,6 +21,12 @@ class Products
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @Vich\UploadableField(mapping="products_images", fileNameProperty="img")
+     * @var File|null
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -73,6 +83,11 @@ class Products
      */
     private $productsCategories;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     public function __construct()
     {
         $this->productsCategories = new ArrayCollection();
@@ -92,6 +107,10 @@ class Products
     {
         $this->title = $title;
 
+        if ($this->title instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
         return $this;
     }
 
@@ -103,6 +122,10 @@ class Products
     public function setContent(?string $content): self
     {
         $this->content = $content;
+
+        if ($this->content instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
 
         return $this;
     }
@@ -116,6 +139,10 @@ class Products
     {
         $this->datecreate = $datecreate;
 
+        if ($this->datecreate instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
         return $this;
     }
 
@@ -127,6 +154,10 @@ class Products
     public function setPublish(bool $publish): self
     {
         $this->publish = $publish;
+
+        if ($this->publish instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
 
         return $this;
     }
@@ -140,6 +171,10 @@ class Products
     {
         $this->phone = $phone;
 
+        if ($this->phone instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
         return $this;
     }
 
@@ -151,6 +186,10 @@ class Products
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        if ($this->email instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
 
         return $this;
     }
@@ -164,6 +203,10 @@ class Products
     {
         $this->website = $website;
 
+        if ($this->website instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
         return $this;
     }
 
@@ -175,6 +218,10 @@ class Products
     public function setBookingurl(?string $bookingurl): self
     {
         $this->bookingurl = $bookingurl;
+
+        if ($this->bookingurl instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
 
         return $this;
     }
@@ -188,6 +235,10 @@ class Products
     {
         $this->img = $img;
 
+        if ($this->img instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
         return $this;
     }
 
@@ -199,6 +250,26 @@ class Products
     public function setUsercreate(?Users $usercreate): self
     {
         $this->usercreate = $usercreate;
+
+        if ($this->usercreate instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile): self
+    {
+        $this->imageFile = $imageFile;
+
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
 
         return $this;
     }
@@ -234,5 +305,17 @@ class Products
     public function __toString()
     {
         return $this->title;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }
