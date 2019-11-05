@@ -43,9 +43,17 @@ easy_admin:
                     - { property: 'usercreate', label: 'Utilisateur' }
                     - { property: 'datecreate', type_options: { widget: 'single_text' }}
                     - { property: 'publish', label: 'Published Status' }
-      
+
       ProductCategory:
          class: App\Entity\ProductsCategory
+
+      HomeSlider:
+         class: App\Entity\HomeSlider
+         form:
+               fields:
+                    - { property: 'intro', type: 'text', label: 'Title' }
+                    - { property: 'imageFile', type: 'file', label: 'Image' }
+                    - { property: 'img', type: 'text', label: 'Alt Attribut' }
 
    user:
       name_property_path: 'fullName'
@@ -63,3 +71,5 @@ easy_admin:
          - { entity: 'Categories', label: 'Catégories', icon: 'tag' }
          - { entity: 'MotsCles', label: 'Mots Clés', icon: 'tag' }
          - { entity: 'Commentaires', label: 'Commentaires', icon: 'tag' }
+         - { label: 'Options' }
+         - { entity: 'HomeSlider', label: 'Slider Home', icon: 'tag' }
