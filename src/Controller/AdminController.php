@@ -3,17 +3,17 @@
 namespace App\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use App\Entity\Users as User;
+use App\Entity\Users;
 
 class AdminController extends EasyAdminController
 {
-    protected function prePersistUserEntity(User $user)
+    protected function prePersistUserEntity(Users $user)
     {
         $encodedPassword = $this->encodePassword($user, $user->getPassword());
         $user->setPassword($encodedPassword);
     }
 
-    protected function preUpdateUserEntity(User $user)
+    protected function preUpdateUserEntity(Users $user)
     {
         if (!$user->getPlainPassword()) {
             return;
